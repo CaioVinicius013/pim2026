@@ -1,0 +1,28 @@
+div{
+
+    background-color: aqua;
+}
+
+#logo{
+    
+    background-color: rgb(3, 14, 6);
+    display: flex;
+    align-items: center;
+    gap :30px;
+    padding: 10px;
+    
+}
+nav ul{
+    display :flex;
+    list-style: none;
+    gap: 50px;
+    justify-content: center;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}
+#logoImage{
+   margin-left: 40vh;
+   
+}
