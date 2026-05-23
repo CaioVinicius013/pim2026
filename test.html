@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Prime Outfit — Luxury Intro</title>
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   MAIN INTRO
+========================================= */
+
+.intro-screen{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    animation:introEnd 10s linear forwards;
+}
+
+/* =========================================
+   CINEMATIC PARTICLES
+========================================= */
+
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+}
+
+.particle{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.9);
+    opacity:0;
+    filter:blur(0.5px);
+
+    animation:
+        particleFloat linear infinite,
+        particleOpacity 10s ease forwards;
+}
+
+/* POSIÇÕES */
+.particle:nth-child(1){
+    left:8%;
+    top:85%;
+    animation-duration:13s;
+    animation-delay:0s;
+}
+
+.particle:nth-child(2){
+    left:16%;
+    top:75%;
+    animation-duration:15s;
+    animation-delay:1s;
+}
+
+.particle:nth-child(3){
+    left:28%;
+    top:90%;
+    animation-duration:14s;
+    animation-delay:0.5s;
+}
+
+.particle:nth-child(4){
+    left:40%;
+    top:82%;
+    animation-duration:16s;
+    animation-delay:2s;
+}
+
+.particle:nth-child(5){
+    left:52%;
+    top:88%;
+    animation-duration:13s;
+    animation-delay:1.5s;
+}
+
+.particle:nth-child(6){
+    left:64%;
+    top:78%;
+    animation-duration:15s;
+    animation-delay:0.8s;
+}
+
+.particle:nth-child(7){
+    left:75%;
+    top:92%;
+    animation-duration:17s;
+    animation-delay:2.2s;
+}
+
+.particle:nth-child(8){
+    left:84%;
+    top:80%;
+    animation-duration:14s;
+    animation-delay:1.2s;
+}
+
+.particle:nth-child(9){
+    left:92%;
+    top:88%;
+    animation-duration:16s;
+    animation-delay:0.3s;
+}
+
+/* =========================================
+   CENTRAL GLOW
+========================================= */
+
+.center-glow{
+    position:absolute;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.03) 35%,
+    rgba(255,255,255,0.01) 50%,
+    transparent 75%);
+
+    filter:blur(45px);
+
+    animation:glowAnimation 10s ease-in-out forwards;
+}
+
+/* =========================================
+   LOGO CONTAINER
+========================================= */
+
+.logo-wrapper{
+    position:relative;
+    z-index:10;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:logoSequence 10s cubic-bezier(.22,.61,.36,1) forwards;
+
+    will-change:
+        opacity,
+        transform,
+        filter;
+}
+
+/* =========================================
+   ORIGINAL LOGO
+========================================= */
+
+.logo{
+    width:min(900px, 82vw);
+    height:auto;
+    object-fit:contain;
+
+    /* brilho cinematográfico suave */
+    filter:
+        drop-shadow(0 0 10px rgba(255,255,255,0.06))
+        drop-shadow(0 0 30px rgba(255,255,255,0.04));
+
+    animation:
+        logoPulse 2.5s ease-in-out infinite;
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    transparent 0%,
+    rgba(0,0,0,0.15) 45%,
+    rgba(0,0,0,0.45) 100%);
+
+    pointer-events:none;
+    z-index:20;
+}
+
+/* =========================================
+   KEYFRAMES
+========================================= */
+
+/* Finalização */
+@keyframes introEnd{
+
+    0%{
+        opacity:1;
+    }
+
+    96%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* Glow */
+@keyframes glowAnimation{
+
+    0%{
+        opacity:0;
+        transform:scale(0.8);
+    }
+
+    20%{
+        opacity:0.15;
+    }
+
+    45%{
+        opacity:0.55;
+        transform:scale(1);
+    }
+
+    70%{
+        opacity:0.38;
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(1.08);
+    }
+}
+
+/* Entrada premium da logo */
+@keyframes logoSequence{
+
+    /* 0s — 2s */
+    0%{
+        opacity:0;
+        transform:scale(1.08);
+        filter:blur(18px);
+    }
+
+    20%{
+        opacity:0;
+        transform:scale(1.06);
+        filter:blur(12px);
+    }
+
+    /* 2s — 5s */
+    35%{
+        opacity:0.45;
+        transform:scale(1.03);
+        filter:blur(5px);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1);
+        filter:blur(0px);
+    }
+
+    /* 5s — 7s */
+    65%{
+        opacity:1;
+        transform:scale(1.005);
+        filter:blur(0px);
+    }
+
+    /* 7s — 10s */
+    85%{
+        opacity:0.7;
+        transform:scale(0.995);
+        filter:blur(1px);
+    }
+
+    100%{
+        opacity:0;
+        transform:scale(0.98);
+        filter:blur(8px);
+    }
+}
+
+/* Pulso sofisticado */
+@keyframes logoPulse{
+
+    0%{
+        filter:
+        drop-shadow(0 0 8px rgba(255,255,255,0.05))
+        drop-shadow(0 0 22px rgba(255,255,255,0.03));
+    }
+
+    50%{
+        filter:
+        drop-shadow(0 0 16px rgba(255,255,255,0.10))
+        drop-shadow(0 0 38px rgba(255,255,255,0.05));
+    }
+
+    100%{
+        filter:
+        drop-shadow(0 0 8px rgba(255,255,255,0.05))
+        drop-shadow(0 0 22px rgba(255,255,255,0.03));
+    }
+}
+
+/* Movimento partículas */
+@keyframes particleFloat{
+
+    0%{
+        transform:
+            translateY(0px)
+            translateX(0px);
+    }
+
+    50%{
+        transform:
+            translateY(-60px)
+            translateX(8px);
+    }
+
+    100%{
+        transform:
+            translateY(-120px)
+            translateX(-6px);
+    }
+}
+
+/* Opacidade partículas */
+@keyframes particleOpacity{
+
+    0%{
+        opacity:0;
+    }
+
+    15%{
+        opacity:0.08;
+    }
+
+    45%{
+        opacity:0.35;
+    }
+
+    70%{
+        opacity:0.18;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media(max-width:768px){
+
+    .logo{
+        width:88vw;
+    }
+
+    .center-glow{
+        width:420px;
+        height:420px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ======================================
+     INTRO SCREEN
+====================================== -->
+
+<section class="intro-screen">
+
+    <!-- Partículas -->
+    <div class="particles">
+
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+
+    </div>
+
+    <!-- Glow -->
+    <div class="center-glow"></div>
+
+    <!-- Logo original -->
+    <div class="logo-wrapper">
+
+        <!--
+            IMPORTANTE:
+            Use EXATAMENTE a imagem original enviada.
+            Não alterar absolutamente nada.
+        -->
+
+        <img
+            src="1000017647.png"
+            alt="Prime Outfit"
+            class="logo"
+        >
+
+    </div>
+
+    <!-- Overlay cinematográfico -->
+    <div class="overlay"></div>
+
+</section>
+
+</body>
+</html>
