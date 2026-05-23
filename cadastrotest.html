@@ -1,202 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background: #f4f4f4;
-        }
-
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            width: 320px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        input {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button {
-            padding: 12px;
-            border: none;
-            background: #007bff;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #0056b3;
-        }
-
-        .status {
-            margin-top: 10px;
-            text-align: center;
-            font-size: 14px;
-        }
-    </style>
+    <title>Prime Outfit | Login & Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-
+<body class="dark-theme">
     <div class="container">
-        <h1>Cadastro</h1>
+        <div class="auth-card">
+            <div class="card-header">
+                <button id="theme-toggle" class="theme-btn" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <h1 class="brand-logo">Prime Outfit</h1>
+                <p class="subtitle">Premium Streetwear Experience</p>
+            </div>
 
-        <form id="registrationForm">
+            <form id="auth-form" novalidate>
+                <div class="input-group">
+                    <label for="name"><i class="fas fa-user"></i> Nome Completo</label>
+                    <input type="text" id="name" placeholder="Seu nome completo" required>
+                    <span class="error-msg">Nome é obrigatório</span>
+                </div>
 
-            <label for="nome">Nome completo</label>
-            <input type="text" id="nome" required>
+                <div class="input-group">
+                    <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
+                    <input type="email" id="email" placeholder="seu@email.com" required>
+                    <span class="error-msg">E-mail inválido</span>
+                </div>
 
-            <label for="cpf">CPF</label>
-            <input
-                type="text"
-                id="cpf"
-                placeholder="000.000.000-00"
-                maxlength="14"
-                required
-            >
+                <div class="row">
+                    <div class="input-group">
+                        <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                        <input type="password" id="password" placeholder="Max 8 caracteres" maxlength="8" required>
+                        <span class="error-msg">Senha obrigatória (máx 8)</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="age"><i class="fas fa-calendar-alt"></i> Idade</label>
+                        <input type="number" id="age" placeholder="Ex: 25" required>
+                        <span class="error-msg">Idade obrigatória</span>
+                    </div>
+                </div>
 
-            <label for="email">E-mail</label>
-            <input type="email" id="email" required>
+                <div class="input-group">
+                    <label for="cpf"><i class="fas fa-id-card"></i> CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" required>
+                    <span class="error-msg">CPF inválido</span>
+                </div>
 
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" required>
+                <div class="row">
+                    <div class="input-group flex-2">
+                        <label for="address"><i class="fas fa-map-marker-alt"></i> Endereço</label>
+                        <input type="text" id="address" placeholder="Rua, número, bairro" required>
+                        <span class="error-msg">Endereço obrigatório</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="cep"><i class="fas fa-truck-fast"></i> CEP</label>
+                        <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+                        <span class="error-msg">CEP inválido</span>
+                    </div>
+                </div>
 
-            <label for="idade">Idade</label>
-            <input type="number" id="idade" required>
-
-            <label for="endereco">Endereço</label>
-            <input type="text" id="endereco" required>
-
-            <label for="cep">CEP</label>
-            <input
-                type="text"
-                id="cep"
-                placeholder="00000-000"
-                required
-            >
-
-            <button type="submit">
-                Cadastrar
-            </button>
-
-            <div class="status" id="status"></div>
-
-        </form>
+                <button type="submit" class="submit-btn">
+                    <span>Entrar / Cadastrar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
     </div>
-
-    <script>
-        const form = document.getElementById('registrationForm');
-        const cpfInput = document.getElementById('cpf');
-        const cepInput = document.getElementById('cep');
-        const statusDiv = document.getElementById('status');
-
-        // Máscara CPF
-        cpfInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-
-            value = value.replace(/(\d{3})(\d)/, '$1.$2');
-            value = value.replace(/(\d{3})(\d)/, '$1.$2');
-            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-
-            e.target.value = value;
-        });
-
-        // Máscara CEP
-        cepInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-
-            value = value.replace(/(\d{5})(\d)/, '$1-$2');
-
-            e.target.value = value;
-        });
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            statusDiv.innerText = 'Enviando...';
-
-            // JSON no formato da API
-            const data = {
-                nmUsuario: document.getElementById('nome').value,
-                email: document.getElementById('email').value,
-                senha: document.getElementById('senha').value,
-                idade: Number(document.getElementById('idade').value),
-                cpf: document.getElementById('cpf').value.replace(/\D/g, ''),
-                endereco: document.getElementById('endereco').value,
-                cep: document.getElementById('cep').value
-            };
-
-            console.log('JSON enviado:', data);
-
-            try {
-
-                const response = await fetch(
-                    'https://sublime-abdominal-pureness.ngrok-free.dev/camisagym/cadastro',
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'ngrok-skip-browser-warning': 'true'
-                        },
-                        body: JSON.stringify(data)
-                    }
-                );
-
-                const text = await response.text();
-
-                console.log('Status HTTP:', response.status);
-                console.log('Resposta API:', text);
-
-                if (response.ok) {
-                    alert('Cadastro realizado com sucesso!');
-                    statusDiv.innerText = 'Cadastro realizado!';
-                    form.reset();
-                } else {
-                    statusDiv.innerText = 'Erro na API';
-                    alert('Erro da API:\n' + text);
-                }
-
-            } catch (error) {
-                console.error('Erro completo:', error);
-                statusDiv.innerText = 'Erro de conexão';
-
-                alert(
-                    'Erro ao conectar na API:\n\n' +
-                    error.message
-                );
-            }
-        });
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
