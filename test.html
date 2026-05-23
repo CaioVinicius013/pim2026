@@ -1,394 +1,320 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Prime Outfit — Luxury Intro</title>
+<title>Carrinho | Prime Outfit</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =========================================
-   RESET
-========================================= */
+/* ================= RESET ================= */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:#000;
-    font-family:Arial, Helvetica, sans-serif;
+body{
+  font-family:'Poppins', sans-serif;
+  background:#0a0a0a;
+  color:#fff;
 }
 
-/* =========================================
-   MAIN INTRO
-========================================= */
+/* ================= HEADER ================= */
 
-.intro-screen{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    animation:introEnd 10s linear forwards;
+.header{
+  width:100%;
+  padding:25px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#111;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
-
-/* =========================================
-   CINEMATIC PARTICLES
-========================================= */
-
-.particles{
-    position:absolute;
-    inset:0;
-    overflow:hidden;
-}
-
-.particle{
-    position:absolute;
-    width:2px;
-    height:2px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.9);
-    opacity:0;
-    filter:blur(0.5px);
-
-    animation:
-        particleFloat linear infinite,
-        particleOpacity 10s ease forwards;
-}
-
-/* POSIÇÕES */
-.particle:nth-child(1){
-    left:8%;
-    top:85%;
-    animation-duration:13s;
-    animation-delay:0s;
-}
-
-.particle:nth-child(2){
-    left:16%;
-    top:75%;
-    animation-duration:15s;
-    animation-delay:1s;
-}
-
-.particle:nth-child(3){
-    left:28%;
-    top:90%;
-    animation-duration:14s;
-    animation-delay:0.5s;
-}
-
-.particle:nth-child(4){
-    left:40%;
-    top:82%;
-    animation-duration:16s;
-    animation-delay:2s;
-}
-
-.particle:nth-child(5){
-    left:52%;
-    top:88%;
-    animation-duration:13s;
-    animation-delay:1.5s;
-}
-
-.particle:nth-child(6){
-    left:64%;
-    top:78%;
-    animation-duration:15s;
-    animation-delay:0.8s;
-}
-
-.particle:nth-child(7){
-    left:75%;
-    top:92%;
-    animation-duration:17s;
-    animation-delay:2.2s;
-}
-
-.particle:nth-child(8){
-    left:84%;
-    top:80%;
-    animation-duration:14s;
-    animation-delay:1.2s;
-}
-
-.particle:nth-child(9){
-    left:92%;
-    top:88%;
-    animation-duration:16s;
-    animation-delay:0.3s;
-}
-
-/* =========================================
-   CENTRAL GLOW
-========================================= */
-
-.center-glow{
-    position:absolute;
-    width:700px;
-    height:700px;
-    border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(255,255,255,0.08) 0%,
-    rgba(255,255,255,0.03) 35%,
-    rgba(255,255,255,0.01) 50%,
-    transparent 75%);
-
-    filter:blur(45px);
-
-    animation:glowAnimation 10s ease-in-out forwards;
-}
-
-/* =========================================
-   LOGO CONTAINER
-========================================= */
-
-.logo-wrapper{
-    position:relative;
-    z-index:10;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    animation:logoSequence 10s cubic-bezier(.22,.61,.36,1) forwards;
-
-    will-change:
-        opacity,
-        transform,
-        filter;
-}
-
-/* =========================================
-   ORIGINAL LOGO
-========================================= */
 
 .logo{
-    width:min(900px, 82vw);
-    height:auto;
-    object-fit:contain;
-
-    /* brilho cinematográfico suave */
-    filter:
-        drop-shadow(0 0 10px rgba(255,255,255,0.06))
-        drop-shadow(0 0 30px rgba(255,255,255,0.04));
-
-    animation:
-        logoPulse 2.5s ease-in-out infinite;
+  font-size:1.8rem;
+  font-weight:700;
+  color:#d4af37;
 }
 
-/* =========================================
-   OVERLAY
-========================================= */
-
-.overlay{
-    position:absolute;
-    inset:0;
-
-    background:
-    radial-gradient(circle at center,
-    transparent 0%,
-    rgba(0,0,0,0.15) 45%,
-    rgba(0,0,0,0.45) 100%);
-
-    pointer-events:none;
-    z-index:20;
+.back-btn{
+  padding:12px 22px;
+  border-radius:50px;
+  border:1px solid #d4af37;
+  color:#d4af37;
+  text-decoration:none;
+  transition:.3s;
 }
 
-/* =========================================
-   KEYFRAMES
-========================================= */
-
-/* Finalização */
-@keyframes introEnd{
-
-    0%{
-        opacity:1;
-    }
-
-    96%{
-        opacity:1;
-    }
-
-    100%{
-        opacity:0;
-        visibility:hidden;
-    }
+.back-btn:hover{
+  background:#d4af37;
+  color:#000;
 }
 
-/* Glow */
-@keyframes glowAnimation{
+/* ================= CARRINHO ================= */
 
-    0%{
-        opacity:0;
-        transform:scale(0.8);
-    }
-
-    20%{
-        opacity:0.15;
-    }
-
-    45%{
-        opacity:0.55;
-        transform:scale(1);
-    }
-
-    70%{
-        opacity:0.38;
-    }
-
-    100%{
-        opacity:0;
-        transform:scale(1.08);
-    }
+.cart-container{
+  width:90%;
+  max-width:1300px;
+  margin:60px auto;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:40px;
 }
 
-/* Entrada premium da logo */
-@keyframes logoSequence{
+/* ================= PRODUTOS ================= */
 
-    /* 0s — 2s */
-    0%{
-        opacity:0;
-        transform:scale(1.08);
-        filter:blur(18px);
-    }
-
-    20%{
-        opacity:0;
-        transform:scale(1.06);
-        filter:blur(12px);
-    }
-
-    /* 2s — 5s */
-    35%{
-        opacity:0.45;
-        transform:scale(1.03);
-        filter:blur(5px);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1);
-        filter:blur(0px);
-    }
-
-    /* 5s — 7s */
-    65%{
-        opacity:1;
-        transform:scale(1.005);
-        filter:blur(0px);
-    }
-
-    /* 7s — 10s */
-    85%{
-        opacity:0.7;
-        transform:scale(0.995);
-        filter:blur(1px);
-    }
-
-    100%{
-        opacity:0;
-        transform:scale(0.98);
-        filter:blur(8px);
-    }
+.cart-products{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
 }
 
-/* Pulso sofisticado */
-@keyframes logoPulse{
-
-    0%{
-        filter:
-        drop-shadow(0 0 8px rgba(255,255,255,0.05))
-        drop-shadow(0 0 22px rgba(255,255,255,0.03));
-    }
-
-    50%{
-        filter:
-        drop-shadow(0 0 16px rgba(255,255,255,0.10))
-        drop-shadow(0 0 38px rgba(255,255,255,0.05));
-    }
-
-    100%{
-        filter:
-        drop-shadow(0 0 8px rgba(255,255,255,0.05))
-        drop-shadow(0 0 22px rgba(255,255,255,0.03));
-    }
+.cart-card{
+  background:#141414;
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  gap:20px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,0.05);
 }
 
-/* Movimento partículas */
-@keyframes particleFloat{
-
-    0%{
-        transform:
-            translateY(0px)
-            translateX(0px);
-    }
-
-    50%{
-        transform:
-            translateY(-60px)
-            translateX(8px);
-    }
-
-    100%{
-        transform:
-            translateY(-120px)
-            translateX(-6px);
-    }
+.cart-card img{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:15px;
 }
 
-/* Opacidade partículas */
-@keyframes particleOpacity{
+.cart-info{
+  flex:1;
+}
+(323 linhas)
 
-    0%{
-        opacity:0;
-    }
 
-    15%{
-        opacity:0.08;
-    }
 
-    45%{
-        opacity:0.35;
-    }
 
-    70%{
-        opacity:0.18;
-    }
 
-    100%{
-        opacity:0;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Carrinho | Prime Outfit</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= RESET ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-/* =========================================
-   RESPONSIVO
-========================================= */
+body{
+  font-family:'Poppins', sans-serif;
+  background:#0a0a0a;
+  color:#fff;
+}
 
-@media(max-width:768px){
+/* ================= HEADER ================= */
 
-    .logo{
-        width:88vw;
-    }
+.header{
+  width:100%;
+  padding:25px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#111;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
 
-    .center-glow{
-        width:420px;
-        height:420px;
-    }
+.logo{
+  font-size:1.8rem;
+  font-weight:700;
+  color:#d4af37;
+}
+
+.back-btn{
+  padding:12px 22px;
+  border-radius:50px;
+  border:1px solid #d4af37;
+  color:#d4af37;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.back-btn:hover{
+  background:#d4af37;
+  color:#000;
+}
+
+/* ================= CARRINHO ================= */
+
+.cart-container{
+  width:90%;
+  max-width:1300px;
+  margin:60px auto;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:40px;
+}
+
+/* ================= PRODUTOS ================= */
+
+.cart-products{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+
+.cart-card{
+  background:#141414;
+  border-radius:20px;
+  overflow:hidden;
+  display:flex;
+  gap:20px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+.cart-card img{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:15px;
+}
+
+.cart-info{
+  flex:1;
+}
+
+.cart-info h3{
+  margin-bottom:10px;
+}
+
+.price{
+  color:#d4af37;
+  font-weight:600;
+  margin-bottom:20px;
+  display:block;
+}
+
+.quantity{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.quantity button{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  border:none;
+  background:#d4af37;
+  color:#000;
+  font-size:1.1rem;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.remove-btn{
+  background:transparent;
+  border:none;
+  color:#ff5a5a;
+  cursor:pointer;
+  font-size:0.95rem;
+}
+
+/* ================= RESUMO ================= */
+
+.cart-summary{
+  background:#141414;
+  border-radius:20px;
+  padding:30px;
+  height:fit-content;
+  border:1px solid rgba(255,255,255,0.05);
+  position:sticky;
+  top:30px;
+}
+
+.cart-summary h2{
+  margin-bottom:30px;
+}
+
+.summary-item{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+  color:#ccc;
+}
+
+.total{
+  font-size:1.4rem;
+  color:#fff;
+  font-weight:700;
+  margin:30px 0;
+  display:flex;
+  justify-content:space-between;
+}
+
+.checkout-btn{
+  width:100%;
+  padding:18px;
+  border:none;
+  border-radius:14px;
+  background:#d4af37;
+  color:#000;
+  font-weight:700;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.checkout-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 20px rgba(212,175,55,0.3);
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media(max-width:900px){
+
+  .cart-container{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:700px){
+
+  .cart-card{
+    flex-direction:column;
+  }
+
+  .cart-card img{
+    width:100%;
+    height:280px;
+  }
+
 }
 
 </style>
@@ -396,51 +322,209 @@ html,body{
 
 <body>
 
-<!-- ======================================
-     INTRO SCREEN
-====================================== -->
+<!-- ================= HEADER ================= -->
 
-<section class="intro-screen">
+<header class="header">
 
-    <!-- Partículas -->
-    <div class="particles">
+  <div class="logo">
+    Prime Outfit
+  </div>
 
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
-        <span class="particle"></span>
+  <a href="index.html" class="back-btn">
+    ← Voltar à Loja
+  </a>
+
+</header>
+
+<!-- ================= CARRINHO ================= -->
+
+<section class="cart-container">
+
+  <!-- PRODUTOS -->
+  <div class="cart-products">
+
+    <!-- PRODUTO 1 -->
+    <div class="cart-card">
+
+      <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="cart-info">
+
+        <h3>Camiseta Essential Black</h3>
+
+        <span class="price" data-price="149.90">
+          R$ 149,90
+        </span>
+
+        <div class="quantity">
+
+          <button class="minus">-</button>
+
+          <span class="qty">1</span>
+
+          <button class="plus">+</button>
+
+        </div>
+
+        <button class="remove-btn">
+          Remover produto
+        </button>
+
+      </div>
 
     </div>
 
-    <!-- Glow -->
-    <div class="center-glow"></div>
+    <!-- PRODUTO 2 -->
+    <div class="cart-card">
 
-    <!-- Logo original -->
-    <div class="logo-wrapper">
+      <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1200&auto=format&fit=crop">
 
-        <!--
-            IMPORTANTE:
-            Use EXATAMENTE a imagem original enviada.
-            Não alterar absolutamente nada.
-        -->
+      <div class="cart-info">
 
-        <img
-            src="1000017647.png"
-            alt="Prime Outfit"
-            class="logo"
-        >
+        <h3>Moletom Urban Gray</h3>
+
+        <span class="price" data-price="249.90">
+          R$ 249,90
+        </span>
+
+        <div class="quantity">
+
+          <button class="minus">-</button>
+
+          <span class="qty">1</span>
+
+          <button class="plus">+</button>
+
+        </div>
+
+        <button class="remove-btn">
+          Remover produto
+        </button>
+
+      </div>
 
     </div>
 
-    <!-- Overlay cinematográfico -->
-    <div class="overlay"></div>
+  </div>
+
+  <!-- RESUMO -->
+  <div class="cart-summary">
+
+    <h2>Resumo do Pedido</h2>
+
+    <div class="summary-item">
+      <span>Produtos</span>
+      <span id="subtotal">R$ 399,80</span>
+    </div>
+
+    <div class="summary-item">
+      <span>Entrega</span>
+      <span>Grátis</span>
+    </div>
+
+    <div class="total">
+      <span>Total</span>
+      <span id="total">R$ 399,80</span>
+    </div>
+
+    <button class="checkout-btn">
+      Finalizar Compra
+    </button>
+
+  </div>
 
 </section>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const plusBtns = document.querySelectorAll('.plus');
+const minusBtns = document.querySelectorAll('.minus');
+const removeBtns = document.querySelectorAll('.remove-btn');
+
+function updateTotal(){
+
+  let total = 0;
+
+  document.querySelectorAll('.cart-card').forEach(card => {
+
+    const price = parseFloat(
+      card.querySelector('.price').dataset.price
+    );
+
+    const qty = parseInt(
+      card.querySelector('.qty').textContent
+    );
+
+    total += price * qty;
+
+  });
+
+  document.getElementById('subtotal').textContent =
+    `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+  document.getElementById('total').textContent =
+    `R$ ${total.toFixed(2).replace('.', ',')}`;
+}
+
+plusBtns.forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    const qtyElement =
+      btn.parentElement.querySelector('.qty');
+
+    let qty = parseInt(qtyElement.textContent);
+
+    qty++;
+
+    qtyElement.textContent = qty;
+
+    updateTotal();
+
+  });
+
+});
+
+minusBtns.forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    const qtyElement =
+      btn.parentElement.querySelector('.qty');
+
+    let qty = parseInt(qtyElement.textContent);
+
+    if(qty > 1){
+
+      qty--;
+
+      qtyElement.textContent = qty;
+
+      updateTotal();
+
+    }
+
+  });
+
+});
+
+removeBtns.forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    btn.closest('.cart-card').remove();
+
+    updateTotal();
+
+  });
+
+});
+
+updateTotal();
+
+</script>
 
 </body>
 </html>

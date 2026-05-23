@@ -25,11 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const API_URL =
         'https://sublime-abdominal-pureness.ngrok-free.dev/PrimeOutfit/cadastro';
-
     // ==========================
     // GERENCIAMENTO DE TEMA
     // ==========================
-
     // Recupera tema salvo
     const savedTheme =
         localStorage.getItem('theme') ||
@@ -44,8 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'click',
         () => {
 
-            if (
-                body.classList.contains(
+            if ( body.classList.contains(
                     'dark-theme'
                 )
             ) {
@@ -281,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // ==========================
             // MONTA JSON
             // ==========================
-
+// Objetos json para conexao via API de cadastro
             const data = {
 
                 nmUsuario:
