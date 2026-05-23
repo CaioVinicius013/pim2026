@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'click',
         () => {
 
+            
             if ( body.classList.contains(
                     'dark-theme'
                 )

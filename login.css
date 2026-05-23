@@ -395,6 +395,7 @@ body::after {
     to { opacity: 1; }
 }
 
+
 /* Mobile Responsive */
 @media (max-width: 480px) {
     .login-card {

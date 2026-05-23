@@ -183,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    
     function clearInvalid(
         element
     ) {
