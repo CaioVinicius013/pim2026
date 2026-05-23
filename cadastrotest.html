@@ -1,80 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prime Outfit | Login & Cadastro</title>
-    <link rel="stylesheet" href="cadastro.css">
+
+    <link rel="stylesheet" href="style.css">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body class="dark-theme">
+
     <div class="container">
+
         <div class="auth-card">
+
+            <!-- CABEÇALHO -->
             <div class="card-header">
-                <button id="theme-toggle" class="theme-btn" aria-label="Alternar tema">
+
+                <button id="theme-toggle"
+                    class="theme-btn"
+                    aria-label="Alternar tema">
+
                     <i class="fas fa-moon"></i>
+
                 </button>
-                <h1 class="brand-logo">Prime Outfit</h1>
-                <p class="subtitle">Premium Streetwear Experience</p>
+
+                <h1 class="brand-logo">
+                    Prime Outfit
+                </h1>
+
+                <p class="subtitle">
+                    Premium Streetwear Experience
+                </p>
+
             </div>
 
+            <!-- FORMULÁRIO -->
             <form id="auth-form" novalidate>
+
+                <!-- NOME -->
                 <div class="input-group">
-                    <label for="name"><i class="fas fa-user"></i> Nome Completo</label>
-                    <input type="text" id="name" placeholder="Seu nome completo" required>
-                    <span class="error-msg">Nome é obrigatório</span>
+
+                    <label for="nome">
+                        <i class="fas fa-user"></i>
+                        Nome Completo
+                    </label>
+
+                    <input type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Seu nome completo"
+                        required>
+
+                    <span class="error-msg">
+                        Nome é obrigatório
+                    </span>
+
                 </div>
 
+                <!-- EMAIL -->
                 <div class="input-group">
-                    <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
-                    <input type="email" id="email" placeholder="seu@email.com" required>
-                    <span class="error-msg">E-mail inválido</span>
+
+                    <label for="email">
+                        <i class="fas fa-envelope"></i>
+                        E-mail
+                    </label>
+
+                    <input type="email"
+                        id="email"
+                        name="email"
+                        placeholder="seu@email.com"
+                        required>
+
+                    <span class="error-msg">
+                        E-mail inválido
+                    </span>
+
                 </div>
 
+                <!-- SENHA E IDADE -->
                 <div class="row">
+
                     <div class="input-group">
-                        <label for="password"><i class="fas fa-lock"></i> Senha</label>
-                        <input type="password" id="password" placeholder="Max 8 caracteres" maxlength="8" required>
-                        <span class="error-msg">Senha obrigatória (máx 8)</span>
+
+                        <label for="senha">
+                            <i class="fas fa-lock"></i>
+                            Senha
+                        </label>
+
+                        <input type="password"
+                            id="senha"
+                            name="senha"
+                            maxlength="8"
+                            placeholder="Máx 8 caracteres"
+                            required>
+
+                        <span class="error-msg">
+                            Senha obrigatória
+                        </span>
+
                     </div>
+
                     <div class="input-group">
-                        <label for="age"><i class="fas fa-calendar-alt"></i> Idade</label>
-                        <input type="number" id="age" placeholder="Ex: 25" required>
-                        <span class="error-msg">Idade obrigatória</span>
+
+                        <label for="idade">
+                            <i class="fas fa-calendar-alt"></i>
+                            Idade
+                        </label>
+
+                        <input type="number"
+                            id="idade"
+                            name="idade"
+                            placeholder="Ex: 25"
+                            required>
+
+                        <span class="error-msg">
+                            Idade obrigatória
+                        </span>
+
                     </div>
+
                 </div>
 
+                <!-- CPF -->
                 <div class="input-group">
-                    <label for="cpf"><i class="fas fa-id-card"></i> CPF</label>
-                    <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14" required>
-                    <span class="error-msg">CPF inválido</span>
+
+                    <label for="cpf">
+                        <i class="fas fa-id-card"></i>
+                        CPF
+                    </label>
+
+                    <input type="text"
+                        id="cpf"
+                        name="cpf"
+                        placeholder="000.000.000-00"
+                        maxlength="14"
+                        required>
+
+                    <span class="error-msg">
+                        CPF inválido
+                    </span>
+
                 </div>
 
+                <!-- ENDEREÇO E CEP -->
                 <div class="row">
+
                     <div class="input-group flex-2">
-                        <label for="address"><i class="fas fa-map-marker-alt"></i> Endereço</label>
-                        <input type="text" id="address" placeholder="Rua, número, bairro" required>
-                        <span class="error-msg">Endereço obrigatório</span>
+
+                        <label for="endereco">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Endereço
+                        </label>
+
+                        <input type="text"
+                            id="endereco"
+                            name="endereco"
+                            placeholder="Rua, número, bairro"
+                            required>
+
+                        <span class="error-msg">
+                            Endereço obrigatório
+                        </span>
+
                     </div>
+
                     <div class="input-group">
-                        <label for="cep"><i class="fas fa-truck-fast"></i> CEP</label>
-                        <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
-                        <span class="error-msg">CEP inválido</span>
+
+                        <label for="cep">
+                            <i class="fas fa-truck-fast"></i>
+                            CEP
+                        </label>
+
+                        <input type="text"
+                            id="cep"
+                            name="cep"
+                            placeholder="00000-000"
+                            maxlength="9"
+                            required>
+
+                        <span class="error-msg">
+                            CEP inválido
+                        </span>
+
                     </div>
+
                 </div>
 
-                <button type="submit" class="submit-btn">
-                    <span>Entrar / Cadastrar</span>
+                <!-- BOTÃO -->
+                <button type="submit"
+                    class="submit-btn">
+
+                    <span>
+                        Entrar / Cadastrar
+                    </span>
+
                     <i class="fas fa-arrow-right"></i>
+
                 </button>
+
             </form>
+
         </div>
+
     </div>
+
+    <!-- SCRIPT -->
     <script src="script.js"></script>
+
 </body>
+
 </html>
