@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Outfit | Cadastro de Produtos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <div class="brand">Prime Outfit</div>
+  <div class="header-tag">Admin · Produtos</div>
+</header>
+
+<div class="page">
+
+  <section class="form-panel">
+    <h1 class="panel-title">CADASTRO DE<br><span>PRODUTOS</span></h1>
+    <p class="panel-sub">Adicione ou edite itens do catálogo</p>
+
+    <form id="productForm" novalidate>
+      <input type="hidden" id="editIndex" value="" />
+
+      <div class="form-grid">
+
+        <div class="field full" id="f-nome">
+          <label for="nome">Nome do Produto</label>
+          <input type="text" id="nome" placeholder="Ex: Camiseta Essential Black" />
+          <span class="error-msg">Nome é obrigatório</span>
+        </div>
+
+        <div class="field" id="f-categoria">
+          <label for="categoria">Categoria</label>
+          <select id="categoria">
+            <option value="">Selecione…</option>
+            <option value="Camisetas">Camisetas</option>
+            <option value="Oversized">Oversized</option>
+            <option value="Moletons">Moletons</option>
+            <option value="Calças">Calças</option>
+            <option value="Acessórios">Acessórios</option>
+          </select>
+          <span class="error-msg">Selecione uma categoria</span>
+        </div>
+
+        <div class="field" id="f-estoque">
+          <label for="estoque">Estoque</label>
+          <input type="number" id="estoque" placeholder="0" min="0" />
+          <span class="error-msg">Estoque inválido</span>
+        </div>
+
+        <div class="field" id="f-preco">
+          <label for="preco">Preço (R$)</label>
+          <div class="price-wrap">
+            <span>R$</span>
+            <input type="number" id="preco" placeholder="0,00" min="0" step="0.01" />
+          </div>
+          <span class="error-msg">Preço inválido</span>
+        </div>
+
+        <div class="field full" id="f-descricao">
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" placeholder="Descrição do produto…"></textarea>
+        </div>
+
+        <div class="field full" id="f-imagem">
+          <label>Imagem do Produto</label>
+          <div class="upload-zone" id="uploadZone" tabindex="0" role="button" aria-label="Selecionar imagem">
+            <input type="file" id="imagem" accept="image/*" hidden />
+            <div class="upload-idle" id="uploadIdle">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>Clique ou arraste uma imagem</span>
+              <em>PNG, JPG, WEBP — máx. 5 MB</em>
+            </div>
+            <div class="upload-preview" id="uploadPreview" style="display:none">
+              <img id="previewImg" src="" alt="preview" />
+              <div class="preview-overlay">
+                <button type="button" id="removeImg" aria-label="Remover imagem">✕ Remover</button>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="imagemPath" />
+          <span class="error-msg" id="imgError"></span>
+        </div>
+
+        <div class="field full">
+          <label>Status</label>
+          <div class="toggle-row">
+            <span class="toggle-label">Produto ativo no catálogo</span>
+            <label class="toggle">
+              <input type="checkbox" id="ativo" checked />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="btn-row">
+        <button type="submit" class="btn-primary" id="submitBtn">
+          <span id="btnText">Salvar Produto</span>
+          <div class="spin" id="btnSpin"></div>
+        </button>
+        <button type="button" class="btn-secondary" id="clearBtn">Limpar</button>
+      </div>
+
+    </form>
+  </section>
+
+  <aside class="list-panel">
+    <div class="list-title">Catálogo</div>
+    <div class="list-count" id="listCount">0 produtos</div>
+    <div class="product-list" id="productList">
+      <div class="empty-state">Nenhum produto cadastrado</div>
+    </div>
+  </aside>
+
+</div>
+
+<div id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
