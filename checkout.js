@@ -1,13 +1,12 @@
-// script.js
 const prices = [149.90, 249.90, 399.90];
 const qtys = [1, 1, 1];
 let shipCost = 19.90;
 let discount = 0;
-
+ 
 function fmt(v) {
   return 'R$ ' + v.toFixed(2).replace('.', ',');
 }
-
+ 
 function updateTotals() {
   const sub = qtys.reduce((acc, q, i) => acc + q * prices[i], 0);
   const total = sub + shipCost - discount;
@@ -20,12 +19,12 @@ function updateTotals() {
     document.getElementById('price' + i).textContent = fmt(q * prices[i]);
   });
 }
-
+ 
 function changeQty(idx, delta) {
   qtys[idx] = Math.max(1, qtys[idx] + delta);
   updateTotals();
 }
-
+ 
 function selectShip(el, delta) {
   document.querySelectorAll('.shipping-opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
@@ -35,7 +34,7 @@ function selectShip(el, delta) {
   document.getElementById('shipLabel').textContent = shipCost === 0 ? 'Grátis' : fmt(shipCost);
   updateTotals();
 }
-
+ 
 function applyCoupon() {
   const code = document.getElementById('couponField').value.trim().toUpperCase();
   const msg = document.getElementById('couponMsg');
@@ -59,7 +58,7 @@ function applyCoupon() {
   }
   updateTotals();
 }
-
+ 
 function showPayment(type, btn) {
   document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
@@ -67,7 +66,7 @@ function showPayment(type, btn) {
   document.getElementById('panelPix').classList.toggle('visible', type === 'pix');
   document.getElementById('panelBoleto').classList.toggle('visible', type === 'boleto');
 }
-
+ 
 function copyPix() {
   const code = document.querySelector('.pix-code').textContent;
   navigator.clipboard.writeText(code).catch(() => {});
@@ -75,45 +74,46 @@ function copyPix() {
   btn.textContent = 'Copiado!';
   setTimeout(() => btn.textContent = 'Copiar código Pix', 2000);
 }
-
+ 
 function copyBoleto() {
   navigator.clipboard.writeText('7891 2345 6789 0 1234 5678 9012 3 4567 8901 2345 6 78').catch(() => {});
   const btn = document.querySelector('#panelBoleto .btn-copy');
   btn.textContent = 'Copiado!';
   setTimeout(() => btn.textContent = 'Copiar linha digitável', 2000);
 }
-
+ 
 function confirmOrder() {
   document.getElementById('successOverlay').classList.add('show');
 }
-
-// Mask CPF
+ 
+// Máscara CPF
 document.getElementById('cpfInput').addEventListener('input', function() {
-  let v = this.value.replace(/\D/g,'');
+  let v = this.value.replace(/\D/g, '');
   v = v.replace(/(\d{3})(\d)/, '$1.$2');
   v = v.replace(/(\d{3})(\d)/, '$1.$2');
   v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
   this.value = v;
 });
-
-// Mask card number
+ 
+// Máscara número do cartão
 document.getElementById('cardNum').addEventListener('input', function() {
-  let v = this.value.replace(/\D/g,'').substring(0,16);
-  this.value = v.replace(/(.{4})/g,'$1 ').trim();
+  let v = this.value.replace(/\D/g, '').substring(0, 16);
+  this.value = v.replace(/(.{4})/g, '$1 ').trim();
 });
-
-// Mask expiry
+ 
+// Máscara validade
 document.getElementById('cardExp').addEventListener('input', function() {
-  let v = this.value.replace(/\D/g,'').substring(0,4);
-  if (v.length >= 3) v = v.substring(0,2) + '/' + v.substring(2);
+  let v = this.value.replace(/\D/g, '').substring(0, 4);
+  if (v.length >= 3) v = v.substring(0, 2) + '/' + v.substring(2);
   this.value = v;
 });
-
-// Mask CEP
+ 
+// Máscara CEP
 document.getElementById('cepInput').addEventListener('input', function() {
-  let v = this.value.replace(/\D/g,'').substring(0,8);
-  if (v.length > 5) v = v.substring(0,5) + '-' + v.substring(5);
+  let v = this.value.replace(/\D/g, '').substring(0, 8);
+  if (v.length > 5) v = v.substring(0, 5) + '-' + v.substring(5);
   this.value = v;
 });
-
+ 
+// Inicializa os totais ao carregar a página
 updateTotals();
