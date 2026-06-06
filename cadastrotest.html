@@ -8,14 +8,12 @@
 
     <link rel="stylesheet" href="cadastro.css">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -26,8 +24,15 @@
 
         <div class="auth-card">
 
-            <!-- CABEÇALHO -->
             <div class="card-header">
+
+                <button type="button" 
+                    onclick="window.history.back()" 
+                    class="back-btn" 
+                    aria-label="Voltar"
+                    style="background: none; border: none; color: inherit; cursor: pointer; font-size: 1.2rem; position: absolute; left: 20px; top: 20px;">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
 
                 <button id="theme-toggle"
                     class="theme-btn"
@@ -47,10 +52,8 @@
 
             </div>
 
-            <!-- FORMULÁRIO -->
             <form id="auth-form" novalidate>
 
-                <!-- NOME -->
                 <div class="input-group">
 
                     <label for="nome">
@@ -70,7 +73,6 @@
 
                 </div>
 
-                <!-- EMAIL -->
                 <div class="input-group">
 
                     <label for="email">
@@ -90,7 +92,6 @@
 
                 </div>
 
-                <!-- SENHA E IDADE -->
                 <div class="row">
 
                     <div class="input-group">
@@ -134,7 +135,6 @@
 
                 </div>
 
-                <!-- CPF -->
                 <div class="input-group">
 
                     <label for="cpf">
@@ -155,7 +155,6 @@
 
                 </div>
 
-                <!-- ENDEREÇO E CEP -->
                 <div class="row">
 
                     <div class="input-group flex-2">
@@ -199,7 +198,6 @@
 
                 </div>
 
-                <!-- BOTÃO -->
                 <button type="submit"
                     class="submit-btn">
 
@@ -217,10 +215,8 @@
 
     </div>
 
-    <!-- SCRIPT -->
     <script src="script.js"></script>
 
 </body>
- 
 
 </html>
