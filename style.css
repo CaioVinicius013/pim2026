@@ -1,4 +1,8 @@
 
+/* =========================================
+   RESET
+========================================= */
+
 *{
   margin: 0;
   padding: 0;
@@ -123,8 +127,54 @@ section{
   transition: 0.3s;
 }
 
+.login-btn{
+  position: relative;
+  padding: 12px 28px;
+  border-radius: 50px;
+  background: linear-gradient(
+    135deg,
+    #d4af37,
+    #f5d76e
+  );
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 1px;
+  overflow: hidden;
+  transition: 0.4s ease;
+  box-shadow:
+    0 5px 15px rgba(212,175,55,0.25),
+    0 0 10px rgba(212,175,55,0.15);
+}
+
+/* brilho interno */
+.login-btn::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+
+/* efeito hover */
 .login-btn:hover{
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 10px 25px rgba(212,175,55,0.4),
+    0 0 20px rgba(212,175,55,0.3);
+}
+
+/* animação brilho */
+.login-btn:hover::before{
+  left: 130%;
+}
+
+/* clique */
+.login-btn:active{
+  transform: scale(0.98);
 }
 
 
@@ -135,7 +185,7 @@ section{
 .hero{
   height: 100vh;
   background:
-    url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400&auto=format&fit=crop')
+    url(imagens/WhatsApp\ Image\ 2026-06-04\ at\ 16.28.25.jpeg)
     center/cover no-repeat;
   position: relative;
   display: flex;
@@ -603,33 +653,4 @@ section{
     font-size: 1.7rem;
   }
 
-
-}div{
-
-    background-color: rgba(0, 0, 0, 0);
-}
-
-#logo{
-    
-    background-color: rgb(3, 14, 6);
-    display: flex;
-    align-items: center;
-    gap :30px;
-    padding: 10px;
-    
-    
-}
-nav ul{
-    display :flex;
-    list-style: none;
-    gap: 50px;
-    justify-content: center;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-}
-#logoImage{
-   margin-left: 40vh;
-   
 }
