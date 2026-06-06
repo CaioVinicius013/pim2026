@@ -4,19 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prime Outfit | Finalizar Compra</title>
- 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
- 
-  <!-- CSS -->
   <link rel="stylesheet" href="checkout.css" />
 </head>
- 
 <body>
  
-  <!-- ===== HEADER ===== -->
+  <!-- HEADER -->
   <header>
     <div class="header-inner">
       <div class="logo">Prime Outfit</div>
@@ -27,7 +22,7 @@
     </div>
   </header>
  
-  <!-- ===== BARRA DE PROGRESSO ===== -->
+  <!-- BARRA DE PROGRESSO -->
   <div class="progress-bar">
     <div class="progress-inner">
       <div class="step done">
@@ -47,7 +42,7 @@
     </div>
   </div>
  
-  <!-- ===== LAYOUT PRINCIPAL ===== -->
+  <!-- LAYOUT -->
   <div class="checkout-layout">
  
     <!-- COLUNA ESQUERDA -->
@@ -83,7 +78,7 @@
         </div>
       </div>
  
-      <!-- ENDEREÇO DE ENTREGA -->
+      <!-- ENDEREÇO -->
       <div class="card">
         <p class="section-label">02 — Entrega</p>
         <h2 class="section-title">Endereço de Entrega</h2>
@@ -220,7 +215,7 @@
  
         <!-- PIX -->
         <div id="panelPix" class="pix-panel">
-          <p style="color:var(--muted);font-size:0.85rem;margin-bottom:18px;">Escaneie o QR Code ou copie o código abaixo para pagar via Pix. O pedido é confirmado em instantes.</p>
+          <p style="color:var(--muted);font-size:0.85rem;margin-bottom:18px;">Escaneie o QR Code ou copie o código abaixo para pagar via Pix.</p>
           <div class="pix-qr">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="80" height="80" fill="white"/>
@@ -233,10 +228,6 @@
               <rect x="5" y="50" width="25" height="25" rx="2" fill="#111"/>
               <rect x="9" y="54" width="17" height="17" rx="1" fill="white"/>
               <rect x="13" y="58" width="9" height="9" fill="#111"/>
-              <rect x="35" y="5" width="5" height="5" fill="#111"/>
-              <rect x="43" y="5" width="5" height="5" fill="#111"/>
-              <rect x="35" y="13" width="5" height="5" fill="#111"/>
-              <rect x="43" y="13" width="5" height="5" fill="#111"/>
               <rect x="35" y="35" width="5" height="5" fill="#d4af37"/>
               <rect x="43" y="35" width="5" height="5" fill="#d4af37"/>
               <rect x="35" y="43" width="5" height="5" fill="#d4af37"/>
@@ -244,16 +235,8 @@
               <rect x="50" y="35" width="5" height="5" fill="#111"/>
               <rect x="58" y="35" width="5" height="5" fill="#111"/>
               <rect x="66" y="35" width="5" height="5" fill="#111"/>
-              <rect x="50" y="43" width="5" height="5" fill="#111"/>
-              <rect x="66" y="43" width="5" height="5" fill="#111"/>
               <rect x="50" y="50" width="5" height="5" fill="#111"/>
-              <rect x="58" y="50" width="5" height="5" fill="#111"/>
               <rect x="58" y="58" width="5" height="5" fill="#111"/>
-              <rect x="50" y="66" width="5" height="5" fill="#111"/>
-              <rect x="66" y="58" width="5" height="5" fill="#111"/>
-              <rect x="35" y="50" width="5" height="5" fill="#111"/>
-              <rect x="35" y="66" width="5" height="5" fill="#111"/>
-              <rect x="43" y="58" width="5" height="5" fill="#111"/>
             </svg>
           </div>
           <div class="pix-code">00020126580014br.gov.bcb.pix0136a8f3b8c2-3d19-4a70-b9f1-primeoutfit520400005303986540549.605802BR5914PrimeOutfitLTD6009SaoPaulo62290525primeoutfit2026checkout6304AB12</div>
@@ -263,60 +246,19 @@
  
         <!-- BOLETO -->
         <div id="panelBoleto" class="boleto-panel">
-          <p style="color:var(--muted);font-size:0.85rem;margin-bottom:18px;">Vencimento em <strong style="color:var(--text);">3 dias úteis</strong>. O pedido é confirmado após o pagamento ser identificado.</p>
+          <p style="color:var(--muted);font-size:0.85rem;margin-bottom:18px;">Vencimento em <strong style="color:var(--text);">3 dias úteis</strong>.</p>
           <div class="boleto-line">7891 2345 6789 0 1234 5678 9012 3 4567 8901 2345 6 78</div>
           <button class="btn-copy" onclick="copyBoleto()">Copiar linha digitável</button>
-          <p style="font-size:0.75rem;color:var(--muted);margin-top:12px;">Ou <a href="#" style="color:var(--gold);">baixe o boleto em PDF</a></p>
         </div>
- 
       </div>
     </div>
  
-    <!-- COLUNA DIREITA — RESUMO DO PEDIDO -->
+    <!-- COLUNA DIREITA — RESUMO DINÂMICO -->
     <div class="summary-card">
       <div class="summary-title">Resumo do Pedido</div>
  
-      <div class="order-item">
-        <img class="item-img" src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?q=80&w=200&auto=format&fit=crop" alt="Camiseta" />
-        <div class="item-details">
-          <div class="item-name">Camiseta Essential Black</div>
-          <div class="item-variant">Tamanho: M &nbsp;·&nbsp; Cor: Preto</div>
-          <div class="item-qty">
-            <button class="qty-btn" onclick="changeQty(0,-1)">−</button>
-            <span class="qty-count" id="qty0">1</span>
-            <button class="qty-btn" onclick="changeQty(0,1)">+</button>
-          </div>
-        </div>
-        <div class="item-price" id="price0">R$ 149,90</div>
-      </div>
- 
-      <div class="order-item">
-        <img class="item-img" src="https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=200&auto=format&fit=crop" alt="Moletom" />
-        <div class="item-details">
-          <div class="item-name">Moletom Urban Gray</div>
-          <div class="item-variant">Tamanho: G &nbsp;·&nbsp; Cor: Cinza</div>
-          <div class="item-qty">
-            <button class="qty-btn" onclick="changeQty(1,-1)">−</button>
-            <span class="qty-count" id="qty1">1</span>
-            <button class="qty-btn" onclick="changeQty(1,1)">+</button>
-          </div>
-        </div>
-        <div class="item-price" id="price1">R$ 249,90</div>
-      </div>
- 
-      <div class="order-item">
-        <img class="item-img" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=200&auto=format&fit=crop" alt="Jaqueta" />
-        <div class="item-details">
-          <div class="item-name">Jaqueta Prime Gold</div>
-          <div class="item-variant">Tamanho: M &nbsp;·&nbsp; Cor: Dourado</div>
-          <div class="item-qty">
-            <button class="qty-btn" onclick="changeQty(2,-1)">−</button>
-            <span class="qty-count" id="qty2">1</span>
-            <button class="qty-btn" onclick="changeQty(2,1)">+</button>
-          </div>
-        </div>
-        <div class="item-price" id="price2">R$ 399,90</div>
-      </div>
+      <!-- Os itens são injetados aqui pelo checkout.js -->
+      <div id="orderItems"></div>
  
       <!-- CUPOM -->
       <div class="coupon-row">
@@ -329,7 +271,7 @@
       <div class="totals">
         <div class="total-row">
           <span>Subtotal</span>
-          <span id="subtotal">R$ 799,70</span>
+          <span id="subtotal">R$ 0,00</span>
         </div>
         <div class="total-row">
           <span>Frete</span>
@@ -337,15 +279,15 @@
         </div>
         <div class="total-row discount" id="discountRow" style="display:none;">
           <span>Desconto (PRIME10)</span>
-          <span id="discountVal">− R$ 79,97</span>
+          <span id="discountVal">− R$ 0,00</span>
         </div>
         <div class="total-row grand">
           <span>Total</span>
-          <span id="grandTotal">R$ 819,60</span>
+          <span id="grandTotal">R$ 0,00</span>
         </div>
       </div>
  
-      <p class="installments">ou <strong>12x de R$ 75,46</strong> com juros no cartão</p>
+      <p class="installments">ou <strong>12x de R$ 0,00</strong> com juros no cartão</p>
  
       <button class="btn-confirm" onclick="confirmOrder()">
         Finalizar Compra
@@ -366,12 +308,11 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
       </div>
       <h2>Pedido Confirmado!</h2>
-      <p>Seu pedido <span class="order-num">#PO-2026-4891</span> foi recebido com sucesso. Você receberá um e-mail de confirmação em breve.</p>
+      <p>Seu pedido <span class="order-num">#PO-2026-4891</span> foi recebido com sucesso.<br>Você receberá um e-mail de confirmação em breve.</p>
       <button class="btn-track" onclick="window.location.href='index.html'">Continuar Comprando</button>
     </div>
   </div>
  
-  <!-- JavaScript -->
   <script src="checkout.js"></script>
  
 </body>
