@@ -1,6 +1,5 @@
-/* style.css */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
+ 
 :root {
   --gold: #d4af37;
   --gold-light: #e8c84a;
@@ -13,16 +12,16 @@
   --muted: #888888;
   --danger: #e05555;
 }
-
+ 
 html { scroll-behavior: smooth; }
-
+ 
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text);
   min-height: 100vh;
 }
-
+ 
 /* ===== HEADER ===== */
 header {
   position: sticky;
@@ -58,7 +57,7 @@ header {
 }
 .back-link:hover { color: var(--gold); }
 .back-link svg { width: 16px; height: 16px; }
-
+ 
 /* ===== PROGRESS BAR ===== */
 .progress-bar {
   background: var(--bg2);
@@ -102,7 +101,7 @@ header {
   margin: 0 12px;
 }
 .step-line.done { background: #4caf50; }
-
+ 
 /* ===== MAIN LAYOUT ===== */
 .checkout-layout {
   max-width: 1200px;
@@ -113,7 +112,7 @@ header {
   gap: 40px;
   align-items: start;
 }
-
+ 
 /* ===== SECTION LABELS ===== */
 .section-label {
   font-size: 0.7rem;
@@ -127,7 +126,7 @@ header {
   font-weight: 600;
   margin-bottom: 24px;
 }
-
+ 
 /* ===== CARDS ===== */
 .card {
   background: var(--bg2);
@@ -136,7 +135,7 @@ header {
   padding: 28px;
   margin-bottom: 24px;
 }
-
+ 
 /* ===== FORM ===== */
 .form-row {
   display: grid;
@@ -171,7 +170,7 @@ header {
 .form-group input:focus,
 .form-group select:focus { border-color: var(--gold); }
 .form-group.full { grid-column: 1 / -1; }
-
+ 
 /* ===== PAYMENT TABS ===== */
 .pay-tabs {
   display: flex;
@@ -201,7 +200,7 @@ header {
   background: var(--gold-dim);
 }
 .pay-tab:hover:not(.active) { border-color: rgba(255,255,255,0.15); color: var(--text); }
-
+ 
 .card-icons {
   display: flex;
   gap: 10px;
@@ -216,8 +215,8 @@ header {
   font-weight: 600;
   color: var(--muted);
 }
-
-/* pix/boleto panels */
+ 
+/* ===== PIX / BOLETO PANELS ===== */
 .pix-panel {
   display: none;
   text-align: center;
@@ -272,7 +271,7 @@ header {
   transition: all 0.25s;
 }
 .btn-copy:hover { background: var(--gold-dim); }
-
+ 
 /* ===== ORDER SUMMARY ===== */
 .summary-card {
   background: var(--bg2);
@@ -329,7 +328,7 @@ header {
 .qty-btn:hover { border-color: var(--gold); color: var(--gold); }
 .qty-count { font-size: 0.82rem; min-width: 18px; text-align: center; }
 .item-price { font-size: 0.9rem; color: var(--gold); font-weight: 600; white-space: nowrap; }
-
+ 
 .coupon-row {
   display: flex;
   gap: 10px;
@@ -360,7 +359,7 @@ header {
   transition: background 0.25s;
 }
 .coupon-btn:hover { background: rgba(212,175,55,0.25); }
-
+ 
 .totals { border-top: 1px solid var(--border); padding-top: 16px; margin-top: 4px; }
 .total-row {
   display: flex;
@@ -379,15 +378,15 @@ header {
   margin-top: 8px;
 }
 .total-row.grand span:last-child { color: var(--gold); }
-
+ 
 .installments {
   font-size: 0.75rem;
   color: var(--muted);
   text-align: center;
   margin-top: 10px;
 }
-
-/* ===== CONFIRM BUTTON ===== */
+ 
+/* ===== BOTÃO CONFIRMAR ===== */
 .btn-confirm {
   width: 100%;
   padding: 17px;
@@ -411,7 +410,7 @@ header {
   box-shadow: 0 12px 30px rgba(212,175,55,0.3);
 }
 .btn-confirm:active { transform: translateY(0); }
-
+ 
 .security-note {
   display: flex;
   align-items: center;
@@ -422,8 +421,8 @@ header {
   margin-top: 12px;
 }
 .security-note svg { width: 13px; height: 13px; }
-
-/* ===== SHIPPING OPTIONS ===== */
+ 
+/* ===== FRETE ===== */
 .shipping-options { display: flex; flex-direction: column; gap: 12px; }
 .shipping-opt {
   display: flex;
@@ -463,7 +462,7 @@ header {
 .ship-name { font-size: 0.85rem; font-weight: 500; }
 .ship-days { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
 .ship-price { font-size: 0.9rem; font-weight: 600; color: var(--gold); }
-
+ 
 /* ===== SUCCESS OVERLAY ===== */
 #successOverlay {
   display: none;
@@ -517,8 +516,8 @@ header {
   transition: 0.3s;
 }
 .btn-track:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212,175,55,0.3); }
-
-/* ===== RESPONSIVE ===== */
+ 
+/* ===== RESPONSIVIDADE ===== */
 @media(max-width: 900px) {
   .checkout-layout { grid-template-columns: 1fr; }
   .summary-card { position: static; }
