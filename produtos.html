@@ -6,16 +6,131 @@
   <title>Prime Outfit | Streetwear Premium</title>
  
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="produtos.css" />
  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="produtos.js"></script>
+  <script src="carrinho.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
  
 <body>
  
+ 
+  <!-- ================= produtos ================= -->
+   <section class="itens" id="produtos">
+
+    <div class="container">
+
+        <!-- Título -->
+        <div class="section-title">
+            <span>COLEÇÃO PRIME</span>
+
+            <h2>
+                Produtos Premium
+            </h2>
+
+            <p>
+                Explore peças exclusivas da Prime Outfit.
+                Elegância, minimalismo e autenticidade.
+            </p>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="produtos-topo">
+
+    <div class="filtro-busca">
+        <input
+            type="text"
+            id="buscarProduto"
+            placeholder="Buscar produto..."
+        >
+    </div>
+
+    <div class="filtro-select">
+        <select id="filtroCategoria">
+
+            <option value="todos">
+                Todas Categorias
+            </option>
+
+            <option value="camiseta">
+                Camisetas
+            </option>
+
+            <option value="moletom">
+                Moletons
+            </option>
+
+            <option value="calca">
+                Calças
+            </option>
+
+        </select>
+    </div>
+
+    <div class="filtro-select">
+        <select id="ordenarPreco">
+
+            <option value="">
+                Ordenar por
+            </option>
+
+            <option value="menor">
+                Menor preço
+            </option>
+
+            <option value="maior">
+                Maior preço
+            </option>
+
+        </select>
+    </div>
+
+</div>
+
+        <!-- Categorias rápidas -->
+        <div class="categorias-rapidas">
+
+            <button class="categoria-btn active">
+                Todos
+            </button>
+
+            <button class="categoria-btn">
+                Camisetas
+            </button>
+
+            <button class="categoria-btn">
+                Oversized
+            </button>
+
+            <button class="categoria-btn">
+                Moletons
+            </button>
+
+            <button class="categoria-btn">
+                Calças
+            </button>
+
+            <button class="categoria-btn">
+                Acessórios
+            </button>
+
+        </div>
+
+        <!-- PRODUTOS DA API -->
+        <div id="cards-container"></div>
+
+    </div>
+
+</section>
+
+
+
+
+
   <!-- ================= HEADER ================= -->
   <header class="header">
     <div class="container nav-container">
@@ -49,29 +164,7 @@
   </header>
  
   <!-- ================= HERO ================= -->
-  <section class="hero">
  
-    <div class="hero-overlay"></div>
- 
-    <div class="hero-content container">
-      <span class="hero-subtitle">STREETWEAR PREMIUM</span>
- 
-      <h1>
-        Elegância Moderna <br />
-        Para Homens de Estilo
-      </h1>
- 
-      <p>
-        Descubra a nova coleção exclusiva da Prime Outfit.
-        Minimalismo, luxo e autenticidade em cada detalhe.
-      </p>
- 
-      <a href="#produtos" class="hero-btn">
-        Comprar Agora
-      </a>
-    </div>
- 
-  </section>
  
   <!-- ================= CATEGORIAS ================= -->
   <section class="categories">
@@ -127,102 +220,7 @@
   </section>
  
   <!-- ================= PRODUTOS ================= -->
-  <section class="products" id="produtos">
- 
-    <div class="container">
- 
-      <div class="section-title">
-        <h2>Produtos em Destaque</h2>
-        <p>Moda masculina premium selecionada.</p>
-      </div>
- 
-      <div class="products-grid">
- 
-        <!-- Produto 1 -->
-        <div class="product-card">
-          <img src="imagens/WhatsApp Image 2026-06-06 at 13.14.36.jpeg" alt="Produto">
-          <div class="product-info">
-            <h3>Camiseta Essential Black</h3>
-            <span>R$ 149,90</span>
-            <button>Comprar</button>
-          </div>
-        </div>
- 
-        <!-- Produto 2 -->
-        <div class="product-card">
-          <img src="imagens/WhatsApp Image 2026-06-06 at 14.35.29.jpeg" alt="Produto">
-          <div class="product-info">
-            <h3>Moletom Urban Green</h3>
-            <span>R$ 119,90</span>
-            <button>Comprar</button>
-          </div>
-        </div>
- 
-        <!-- Produto 3 -->
-        <div class="product-card">
-          <img src="imagens/WhatsApp Image 2026-06-06 at 14.40.22.jpeg" alt="Produto">
-          <div class="product-info">
-            <h3>Calça StreetWear Bege</h3>
-            <span>R$ 199,90</span>
-            <button>Comprar</button>
-          </div>
-        </div>
- 
-        <!-- Produto 4 -->
-        <div class="product-card">
-          <img src="imagens/WhatsApp Image 2026-06-06 at 14.43.54.jpeg" alt="Produto">
-          <div class="product-info">
-            <h3>Jaqueta Esportiva</h3>
-            <span>R$ 249,90</span>
-            <button>Comprar</button>
-          </div>
-        </div>
- 
-        <!-- Produto 5 -->
-        <div class="product-card">
-          <img src="imagens/WhatsApp Image 2026-06-06 at 14.54.04.jpeg" alt="Produto">
-          <div class="product-info">
-            <h3>Oversized Premium</h3>
-            <span>R$ 129,90</span>
-            <button>Comprar</button>
-          </div>
-        </div>
- 
-        <!-- Produto 6 -->
-        <div class="product-card">
-          <img src="imagens/ChatGPT Image 6 de jun. de 2026, 15_05_35.png" alt="Produto">
-          <div class="product-info">
-            <h3>Relógio Minimal</h3>
-            <span>R$ 289,90</span>
-            <button>Comprar</button>
-          </div>
-        </div>
- 
-        <!-- Produto 7 -->
-        <div class="product-card">
-          <img src="imagens/ChatGPT Image 6 de jun. de 2026, 15_09_57.png" alt="Produto">
-          <div class="product-info">
-            <h3>Boné Black Edition</h3>
-            <span>R$ 119,90</span>
-            <button>Comprar</button>
-          </div>
-        </div>
- 
-        <!-- Produto 8 -->
-        <div class="product-card">
-          <img src="imagens/ChatGPT Image 6 de jun. de 2026, 15_33_31.png" alt="Produto">
-          <div class="product-info">
-            <h3>Óculos Moderno</h3>
-            <span>R$ 129,90</span>
-            <button>Comprar</button>
-          </div>
-        </div>
- 
-      </div>
- 
-    </div>
- 
-  </section>
+  
  
   <!-- ================= NOVA COLEÇÃO ================= -->
   <section class="collection" id="colecao">
@@ -338,7 +336,7 @@
         Cadastre seu email e fique por dentro das novas coleções.
       </p>
  
-     <form class="newsletter-form" onsubmit="event.preventDefault(); window.location.href='cadastrotest.html'">
+      <form class="newsletter-form">
         <input type="email" placeholder="Digite seu melhor email" required>
         <button type="submit">Cadastrar</button>
       </form>
@@ -403,7 +401,7 @@
  
 <div id="cartFeedback" style="position:fixed;bottom:30px;right:30px;background:#d4af37;color:#000;padding:12px 22px;border-radius:50px;font-family:Poppins,sans-serif;font-weight:600;font-size:0.85rem;opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:9999;">✓ Item adicionado ao carrinho!</div>
 <script src="carrinho.js"></script>
-<style>#cartFeedback.show{opacity:1;}</style>
 <script src="auth.js"></script>
+<style>#cartFeedback.show{opacity:1;}</style>
 </body>
 </html>
