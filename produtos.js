@@ -113,14 +113,19 @@ function renderizarProdutos(produtos) {
     });
 }
 document.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-comprar');
     if (!btn) return;
+
+    // Verifica login antes de adicionar ao carrinho
+    if (!isLoggedIn()) {
+        redirectToLogin();
+        return;
+    }
 
     const name = btn.dataset.nome;
     const price = parseFloat(btn.dataset.preco);
     const img = btn.dataset.img;
-
-    console.log('comprei:', name);
 
     addToCart(name, price, img);
 });

@@ -378,8 +378,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         //    resultado.token
                         // );
 
-                        window.location.href =
-                               'index.html';
+                        // Redireciona para página que o usuário tentou acessar, ou index
+                        const redirectUrl = localStorage.getItem('redirectAfterLogin') || 'index.html';
+                        localStorage.removeItem('redirectAfterLogin');
+                        window.location.href = redirectUrl;
                              
                     showFeedback(
                         'Login realizado com sucesso!',

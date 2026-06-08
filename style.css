@@ -654,3 +654,144 @@ section{
   }
 
 }
+
+/* =========================================
+   MOBILE RESPONSIVO — CORREÇÕES
+========================================= */
+
+/* Hamburger menu button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media(max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-container {
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    gap: 0;
+    position: relative;
+  }
+
+  /* Carrinho sempre visível no mobile — fica ao lado do hamburger */
+  .nav-mobile-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cart-btn-mobile {
+    position: relative;
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .cart-btn-mobile #cartBadge,
+  .cart-btn-mobile .cartBadge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #d4af37;
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Nav links — menu mobile oculto por padrão */
+  .navbar {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .navbar.open {
+    max-height: 400px;
+  }
+
+  .nav-links {
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 12px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Nav-actions desktop oculto no mobile */
+  .nav-actions {
+    display: none !important;
+  }
+
+  /* Menu de usuário logado no mobile dentro do menu colapsável */
+  .navbar-user-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .navbar-user-mobile a,
+  .navbar-user-mobile button {
+    display: block;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 0.95rem;
+    text-align: left;
+    background: none;
+    font-family: inherit;
+  }
+
+}
+
+@media(max-width: 480px) {
+  .logo {
+    font-size: 1.4rem;
+  }
+}

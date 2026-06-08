@@ -1057,3 +1057,66 @@ section{
   }
 
 }
+
+/* =========================================
+   MOBILE — produtos.css
+========================================= */
+
+@media(max-width: 768px) {
+
+  body {
+    padding-top: 70px; /* espaço para o header fixo no mobile */
+  }
+
+  .itens {
+    padding-top: 20px;
+  }
+
+  .produtos-topo {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .filtro-busca,
+  .filtro-select {
+    width: 100%;
+  }
+
+  .filtro-busca input,
+  .filtro-select select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .categorias-rapidas {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .categoria-btn {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+
+  .section-title {
+    margin-bottom: 30px;
+  }
+
+  .section-title h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media(max-width: 480px) {
+
+  #cards-container {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+    gap: 20px;
+  }
+
+  .produto-img {
+    height: 240px;
+  }
+}

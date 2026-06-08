@@ -19,13 +19,12 @@
   <!-- ================= HEADER ================= -->
   <header class="header">
     <div class="container nav-container">
- 
+
       <div class="logo">
         Prime Outfit
       </div>
- 
-      
-      <nav class="navbar">
+
+      <nav class="navbar" id="mainNavbar">
         <ul class="nav-links">
           <li><a href="#">Home</a></li>
           <li><a href="produtos.html">Produtos</a></li>
@@ -33,17 +32,31 @@
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
+        <!-- Links de usuário visíveis no menu mobile -->
+        <div class="navbar-user-mobile" id="navbarUserMobile">
+          <a href="cadastrotest.html">Cadastrar</a>
+          <a href="login.html">Login</a>
+        </div>
       </nav>
- 
-      <div class="nav-actions"
-      id="nav-user">
+
+      <!-- Lado direito: carrinho (sempre visível) + hamburger -->
+      <div class="nav-mobile-right">
+        <a href="checkout.html" class="cart-btn-mobile" id="cartBtnMobile" style="display:none;">
+          🛒
+          <span id="cartBadgeMobile" class="cartBadge" style="display:none;position:absolute;top:-8px;right:-10px;background:#d4af37;color:#000;font-size:0.65rem;font-weight:700;width:18px;height:18px;border-radius:50%;align-items:center;justify-content:center;">0</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Nav-actions desktop -->
+      <div class="nav-actions" id="nav-user">
         <a href="cadastrotest.html">Cadastrar</a>
         <a href="login.html">Login</a>
         <a href="#contato">Contato</a>
       </div>
-      <div>
- 
-      </div>
+
     </div>
   </header>
  
@@ -404,5 +417,6 @@
 <script src="carrinho.js"></script>
 <style>#cartFeedback.show{opacity:1;}</style>
 <script src="auth.js"></script>
+<script src="mobile.js"></script>
 </body>
 </html>
