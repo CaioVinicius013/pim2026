@@ -113,7 +113,6 @@ function renderizarProdutos(produtos) {
     });
 }
 document.addEventListener('click', (e) => {
-document.addEventListener('click', (e) => {
     const btn = e.target.closest('.btn-comprar');
     if (!btn) return;
 
