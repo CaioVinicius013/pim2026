@@ -1,153 +1,102 @@
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
+async function carregarProduto() {
 
-const id =
-    Number(
-        params.get('id')
-    );
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-console.log(
-    'ID da URL:',
-    id
-);
+    const id =
+        Number(
+            params.get('id')
+        );
 
-
-// PRODUTOS DE TESTE
-const produtos = [
-
-    {
-        idProduto: 1002,
-
-        nmProduto:
-            'Camisa Polo Prime',
-
-        dsProduto:
-            'Camisa premium algodão.',
-
-        vlPreco: 129.90,
-
-        imagem:
-            'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800'
-    },
-
-    {
-        idProduto: 1003,
-
-        nmProduto:
-            'Moletom Prime',
-
-        dsProduto:
-            'Streetwear premium.',
-
-        vlPreco: 249.90,
-
-        imagem:
-            'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800'
-    },
-
-    {
-        idProduto: 1004,
-
-        nmProduto:
-            'Jaqueta Prime',
-
-        dsProduto:
-            'Jaqueta premium.',
-
-        vlPreco: 389.90,
-
-        imagem:
-            'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800'
-    }
-];
-
-
-// procura produto
-const produto =
-    produtos.find(
-        p =>
-        p.idProduto ===
+    console.log(
+        'ID URL:',
         id
     );
 
-console.log(
-    'Produto encontrado:',
-    produto
-);
+    try {
 
-const container =
-    document.getElementById(
-        'produto-container'
-    );
+        const response =
+            await fetch(
+'https://sublime-abdominal-pureness.ngrok-free.dev/PrimeOutfit/produtos/busca'
+            );
 
+        const produtos =
+            await response.json();
 
-// se não encontrar
-if (!produto) {
+        console.log(
+            'Produtos API:',
+            produtos
+        );
 
-    container.innerHTML = `
+        const produto =
+            produtos.find(
+                p =>
+                p.idProduto === id
+            );
 
-        <div
-            style="
-                min-height:100vh;
+        console.log(
+            'Produto encontrado:',
+            produto
+        );
+
+        const container =
+            document.getElementById(
+                'produto-container'
+            );
+
+        if (!produto) {
+
+            container.innerHTML =
+                '<h1>Produto não encontrado</h1>';
+
+            return;
+        }
+
+        container.innerHTML = `
+
+            <div style="
                 display:flex;
-                align-items:center;
-                justify-content:center;
-                background:#050505;
+                gap:40px;
+                padding:50px;
                 color:white;
-                font-size:2rem;
-            "
-        >
-            Produto não encontrado
-        </div>
-    `;
+                background:#111;
+                min-height:100vh;
+            ">
 
-}
+                <div>
 
-// renderiza produto
-else {
+                    <h1>
+                        ${produto.nmProduto}
+                    </h1>
 
-    container.innerHTML = `
+                    <p>
+                        ${produto.dsProduto}
+                    </p>
 
-        <div class="produto-page">
+                    <h2>
+                        R$
+                        ${produto.vlPreco}
+                    </h2>
 
-            <div
-                class="produto-imagem"
-            >
+                    <p>
+                        Categoria:
+                        ${produto.idCategoria}
+                    </p>
 
-                <img
-                    src="${produto.imagem}"
-                    alt="${produto.nmProduto}"
-                >
-
-            </div>
-
-            <div
-                class="
-                produto-detalhes
-                "
-            >
-
-                <h1>
-                    ${produto.nmProduto}
-                </h1>
-
-                <p>
-                    ${produto.dsProduto}
-                </p>
-
-                <h2>
-                    R$
-                    ${produto.vlPreco}
-                </h2>
-
-                <button>
-                    Comprar Agora
-                </button>
+                </div>
 
             </div>
+        `;
 
-        </div>
-    `;
+    } catch (error) {
+
+        console.error(
+            'ERRO:',
+            error
+        );
+    }
 }
+
+carregarProduto();

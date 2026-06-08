@@ -1,74 +1,52 @@
-let produtosOriginais = [];
-
-async function carregarItens() {
+async function carregarProdutos() {
 
     try {
 
-        // TESTE SEM API
-        produtosOriginais = [
+        const response =
+            
+    await fetch(
+'https://sublime-abdominal-pureness.ngrok-free.dev/PrimeOutfit/produtos/busca',
+        {
+            method: 'GET',
 
-    {
-        idProduto: 1002,
+            headers: {
+                'ngrok-skip-browser-warning':
+                    'true',
 
-        nmProduto:
-            'Camiseta Oversized Prime',
+                'Content-Type':
+                    'application/json'
+            }
+        }
+    );
 
-        dsProduto:
-            'Premium oversized',
+        if (!response.ok) {
 
-        vlPreco: 99.90,
+            throw new Error(
+                'Erro ao buscar API'
+            );
+        }
 
-        categoria:
-            'camiseta',
+        const produtos =
+            await response.json();
 
-        imagem:
-            'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800'
-    },
-
-    {
-        nmProduto:
-            'Moletom Prime',
-
-        dsProduto:
-            'Streetwear premium',
-
-        vlPreco: 249.90,
-
-        categoria:
-            'moletom',
-
-        imagem:
-            'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800'
-    },
-
-    {
-        nmProduto:
-            'Calça Cargo',
-
-        dsProduto:
-            'Minimalista premium',
-
-        vlPreco: 189.90,
-
-        categoria:
-            'calca',
-
-        imagem:
-            'https://images.unsplash.com/photo-1506629905607-d9f8b0f6f3c7?w=800'
-    }
-];
-
-        renderizarProdutos(
-            produtosOriginais
+        console.log(
+            'Produtos API:',
+            produtos
         );
 
-        ativarFiltros();
+        renderizarProdutos(
+            produtos
+        );
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            'Erro API:',
+            error
+        );
     }
 }
+
 
 function renderizarProdutos(produtos) {
 
@@ -89,19 +67,39 @@ function renderizarProdutos(produtos) {
         card.className =
             'produto-card';
 
+        // URL da imagem
+        const imagemUrl =
+
+`https://sublime-abdominal-pureness.ngrok-free.dev/imagens/${produto.urlImagem}`;
+
         card.innerHTML = `
 
             <a
-                href="infoprodutos.html?id=${produto.idProduto}"
-                class="produto-link"
+                href="
+infoprodutos.html?id=${produto.idProduto}
+                "
+                class="
+                produto-link
+                "
             >
 
                 <img
-                    src="${produto.imagem}"
-                    class="produto-img"
+                    src="${imagemUrl}"
+                    class="
+                    produto-img
+                    "
+                    alt="
+                    ${produto.nmProduto}
+                    "
+
+                    
                 >
 
-                <div class="produto-info">
+                <div
+                    class="
+                    produto-info
+                    "
+                >
 
                     <h3>
                         ${produto.nmProduto}
@@ -111,8 +109,13 @@ function renderizarProdutos(produtos) {
                         ${produto.dsProduto}
                     </p>
 
-                    <div class="preco">
-                        R$ ${produto.vlPreco}
+                    <div
+                        class="
+                        preco
+                        "
+                    >
+                        R$
+                        ${produto.vlPreco}
                     </div>
 
                 </div>
@@ -125,111 +128,6 @@ function renderizarProdutos(produtos) {
         );
     });
 }
-function ativarFiltros() {
 
-    // busca
-    document
-        .getElementById(
-            'buscarProduto'
-        )
-        .addEventListener(
-            'input',
-            filtrarProdutos
-        );
 
-    // categoria
-    document
-        .getElementById(
-            'filtroCategoria'
-        )
-        .addEventListener(
-            'change',
-            filtrarProdutos
-        );
-
-    // ordenar
-    document
-        .getElementById(
-            'ordenarPreco'
-        )
-        .addEventListener(
-            'change',
-            filtrarProdutos
-        );
-}
-
-function filtrarProdutos() {
-
-    const busca =
-        document
-            .getElementById(
-                'buscarProduto'
-            )
-            .value
-            .toLowerCase();
-
-    const categoria =
-        document
-            .getElementById(
-                'filtroCategoria'
-            )
-            .value;
-
-    const ordem =
-        document
-            .getElementById(
-                'ordenarPreco'
-            )
-            .value;
-
-    let produtosFiltrados =
-        [...produtosOriginais];
-
-    // busca
-    produtosFiltrados =
-        produtosFiltrados.filter(
-            produto =>
-                produto.nmProduto
-                .toLowerCase()
-                .includes(busca)
-        );
-
-    // categoria
-    if (
-        categoria !== 'todos'
-    ) {
-        produtosFiltrados =
-            produtosFiltrados.filter(
-                produto =>
-                    produto.categoria ===
-                    categoria
-            );
-    }
-
-    // ordenar
-    if (ordem === 'menor') {
-
-        produtosFiltrados.sort(
-            (a, b) =>
-                a.vlPreco -
-                b.vlPreco
-        );
-
-    } else if (
-        ordem === 'maior'
-    ) {
-
-        produtosFiltrados.sort(
-            (a, b) =>
-                b.vlPreco -
-                a.vlPreco
-        );
-    }
-
-    renderizarProdutos(
-        produtosFiltrados
-    );
-}
-
-window.onload =
-    carregarItens;
+carregarProdutos();
