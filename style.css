@@ -1,4 +1,3 @@
-
 /* =========================================
    RESET
 ========================================= */
@@ -658,6 +657,11 @@ section{
 /* =========================================
    MOBILE RESPONSIVO — CORREÇÕES
 ========================================= */
+
+/* Oculto no desktop, só aparece no mobile via media query */
+.navbar-user-mobile {
+  display: none;
+}
 
 /* Hamburger menu button */
 .hamburger {
